@@ -8,11 +8,11 @@ var app = function(app) {
         var logo = new zim.Rectangle(300,50,"#000")
             .addTo(page1);
 
-        var title = new zim.Label({text:"My Little Buddy", color:"#fff"})
+        var title = new zim.Label({text:"MY LITTLE BUDDY", size:"40", color:"#fff"})
         .addTo(logo);
         title.x = ((logo.width)/2)-((title.width)/2);
 
-        var content = new zim.Rectangle(700,600,frame.tin)
+        var content = new zim.Container(700,600)
             .addTo(page1);
 
         reset.addTo(content);
@@ -26,12 +26,12 @@ var app = function(app) {
         restart.addTo(reset);
 
         buddyhappy.addTo(content);
-        buddyhappy.x = (content.width/2)-(buddymedium.width/2)+30;
-        buddyhappy.y = (content.height/2)-40;
+        buddyhappy.x = (content.width/2)-130;
+        buddyhappy.y = (content.height/2)-30;
 
         buddymedium.addTo(content);
         buddymedium.x = (content.width/2)-(buddymedium.width/2);
-        buddymedium.y = (content.height/2)-50;
+        buddymedium.y = (content.height/2)-40;
 
         buddylow.addTo(content);
         buddylow.x = (content.width/2)-(buddylow.width/2)-30;
@@ -47,7 +47,7 @@ var app = function(app) {
 
         var buttons = new zim.Container()
             .addTo(page1);
-        var help = p.help = new zim.Button({label:"HELP", color:"red"}).addTo(buttons);
+        var help = p.help = new zim.Button(200, 50, "HELP", "red").addTo(buttons);
 
         // LAYOUT
         var layout = new zim.Layout({
@@ -86,11 +86,10 @@ var app = function(app) {
             holder:page2,
             regions:[
         {object:logo2, marginTop:2, maxWidth:80, height:15, align:"center", valign:"top"},
-        {object:content2, marginTop:2, maxWidth:100, backgroundColor:frame.tin},
+        {object:content2, marginTop:2, maxWidth:100, height:70, backgroundColor:"#000"},
         // {object:buttons2, marginTop:2, maxWidth:100, minHeight:10,}
             ],
             lastMargin:2,
-            regionShape:new zim.Shape(),
             scalingObject:stage
         });
         
