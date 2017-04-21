@@ -31,45 +31,47 @@ frame.loadAssets(["koromon1.png", "koromon5.png", "koromon6.png", "koromon7.png"
 frame.on("complete", function ()  {
 
     var buddyhappy = frame.asset("koromon1.png");
-    buddyhappy.scaleX = buddyhappy.scaleY = .25;
+    buddyhappy.scaleX = buddyhappy.scaleY = .35;
 
     var buddymedium = frame.asset("koromon5.png");
-    buddymedium.scaleX = buddymedium.scaleY = 1.8;
+    buddymedium.scaleX = buddymedium.scaleY = 2.5;
     buddymedium.alpha = 0;
 
     var buddylow = frame.asset("koromon6.png");
-    buddylow.scaleX = buddylow.scaleY = .3;
+    buddylow.scaleX = buddylow.scaleY = .4;
     buddylow.alpha = 0;
 
     var buddydead = frame.asset("koromon7.png");
-    buddydead.scaleX = buddydead.scaleY = 1.35;
+    buddydead.scaleX = buddydead.scaleY = 1.8;
     buddydead.alpha = 0;
 
-    var bar1 = new zim.Rectangle(500, 20, "red")
+    var bar1 = new zim.Rectangle(450, 20, "red")
         bar1.x = 20;
         bar1.y = 30;
 
-    var bar2 = new zim.Rectangle(500, 20, "red")  
+    var bar2 = new zim.Rectangle(450, 20, "red")  
         bar2.x = 20;
         bar2.y = 80;
 
-    var bar3 = new zim.Rectangle(500, 20, "red")
+    var bar3 = new zim.Rectangle(450, 20, "red")
         bar3.x = 20;
         bar3.y = 130;
         
-    var one = new zim.Button(350, 200, "APPLE", "red");
-    var two = new zim.Button(350, 200, "CHOCOLATE", "red");
-        two.y = 200;
-    var three = new zim.Button(350, 200, "CHICKEN", "red");
-        three.y = 400;
-    var four = new zim.Button(350, 200, "VITAMINS", "red");        
+    var one = new zim.Button(350, 350, "APPLE", "red");
+        one.y = -450;
+    var two = new zim.Button(350, 350, "CHOCOLATE", "red");
+        two.y = -100;
+    var three = new zim.Button(350, 350, "CHICKEN", "red");
+        three.y = 250;
+    var four = new zim.Button(350, 350, "VITAMINS", "red");        
         four.x = 350;
-    var five = new zim.Button(350, 200, "BALL", "red");
+        four.y = -450;
+    var five = new zim.Button(350, 350, "BALL", "red");
         five.x = 350;
-        five.y = 200;
-    var six = new zim.Button(350, 200, "BATH", "red");        
+        five.y = -100;
+    var six = new zim.Button(350, 350, "BATH", "red");        
         six.x = 350;
-        six.y = 400;
+        six.y = 250;
 
      var healthlabel = new zim.Label({text:"HEALTH", color:"#000"})
     healthlabel.x = 480;
@@ -91,12 +93,12 @@ frame.on("complete", function ()  {
     var banner = new zim.Label({text:"Your Little Buddy Has Died!", size:"42", color:"#000"})
         banner.x = 80;
         banner.y = 40;
-    var restart = new zim.Button(160, 70, "Restart?", "#000")
+    var restart = new zim.Button(180, 70, "Restart?", "#000")
         restart.x = 270;
         restart.y = 120;
 
 restart.on("mousedown", function() {
-    console.log("restart");
+    zog("index.html");
 });
 
 function andHeDies() {
@@ -117,7 +119,6 @@ function andHeDies() {
 
     setInterval(countDown1, 5000);   
         function countDown1() {
-            console.log(health);
             health--;
             if (health == 9) {
                 zim.animate({
