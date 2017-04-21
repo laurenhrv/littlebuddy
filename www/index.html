@@ -9,7 +9,6 @@
 <script src="https://d309knd7es5f10.cloudfront.net/zim_4.8.1.js"></script>
 <script src="mvc/view.js"></script>
 <script src="mvc/controller.js"></script>
-<!-- <script src="mvc/help.js"></script> -->
 <script>
 
 var scaling = "full"; 
@@ -73,20 +72,20 @@ frame.on("complete", function ()  {
         six.x = 350;
         six.y = 250;
 
-     var healthlabel = new zim.Label({text:"HEALTH", color:"#000"})
-    healthlabel.x = 480;
-    healthlabel.y = 25;
+    var healthlabel = new zim.Label({text:"HEALTH", color:"#000"})
+        healthlabel.x = 480;
+        healthlabel.y = 25;
 
     var happinesslabel = new zim.Label({text:"HAPPINESS", color:"#000"})
-    happinesslabel.x = 480;
-    happinesslabel.y = 75;
+        happinesslabel.x = 480;
+        happinesslabel.y = 75;
 
     var hungerlabel = new zim.Label({text:"HUNGER", color:"#000"})
-    hungerlabel.x = 480;
-    hungerlabel.y = 125;
+        hungerlabel.x = 480;
+        hungerlabel.y = 125;
 
     var reset = new zim.Container(300, 200)
-    reset.alpha = 0;
+        reset.alpha = 0;
     var notice = new zim.Rectangle(640, 200, "red", "#000", 3)
         notice.x = 30;
         notice.y = 30;
@@ -97,22 +96,35 @@ frame.on("complete", function ()  {
         restart.x = 270;
         restart.y = 120;
 
-restart.on("mousedown", function() {
-    zog("index.html");
-});
-
-function andHeDies() {
-    if (health <= 0 && happiness <= 0 && hunger <= 0) {
-        buddyhappy.alpha = 0;
+    restart.on("mousedown", function() {
+        health = 10;
+        happiness = 10;
+        hunger = 10;
+        reset.alpha = 0;
+        buddyhappy.alpha = 1;
         buddymedium.alpha = 0;
         buddylow.alpha = 0;
-        buddydead.alpha = 1;
-        reset.alpha = 1;
-        healthlabel.alpha = 0;
-        happinesslabel.alpha = 0;
-        hungerlabel.alpha = 0;
+        buddydead.alpha = 0;
+        bar1.scaleX = 1;
+        bar2.scaleX = 1;
+        bar3.scaleX = 1;
+        happinesslabel.alpha = 1;
+        healthlabel.alpha = 1;
+        hungerlabel.alpha = 1;
+    });
+
+    function andHeDies() {
+        if (health <= 0 && happiness <= 0 && hunger <= 0) {
+            buddyhappy.alpha = 0;
+            buddymedium.alpha = 0;
+            buddylow.alpha = 0;
+            buddydead.alpha = 1;
+            reset.alpha = 1;
+            healthlabel.alpha = 0;
+            happinesslabel.alpha = 0;
+            hungerlabel.alpha = 0;
+        }
     }
-}
 //health bar decrease
 
     var health = 10;
@@ -194,7 +206,7 @@ function andHeDies() {
 
 //happiness bar decrease
 
-var happiness = 10;
+    var happiness = 10;
 
     setInterval(countDown2, 5000);   
         function countDown2() {
@@ -269,9 +281,9 @@ var happiness = 10;
             }
         }
 
-//hunger bar decrease
+    //hunger bar decrease
 
-var hunger = 10;
+    var hunger = 10;
 
     setInterval(countDown3, 5000);   
         function countDown3() {
@@ -346,7 +358,7 @@ var hunger = 10;
             }
         }
 //Apple: health+, hunger+
-     one.on("mousedown", function() {
+    one.on("mousedown", function() {
             console.log("APPLE");
             health++;
             if (health == 9) {
@@ -535,7 +547,7 @@ var hunger = 10;
         });
 
 //Chocolate: happiness+, hunger+
-     two.on("mousedown", function() {
+    two.on("mousedown", function() {
             console.log("CHOCOLATE");
             happiness++;
             if (happiness == 9) {
@@ -724,7 +736,7 @@ var hunger = 10;
         });
 
 //Bath: happiness+, health+
-     six.on("mousedown", function() {
+    six.on("mousedown", function() {
             console.log("BATH");
             happiness++;
             if (happiness == 9) {
@@ -913,7 +925,7 @@ var hunger = 10;
         });
 
 //Chicken: hunger++
-     three.on("mousedown", function() {
+    three.on("mousedown", function() {
             console.log("CHICKEN");
             hunger++;
             if (hunger == 9) {
@@ -1010,7 +1022,7 @@ var hunger = 10;
         });
 
 //Vitamins: health++
-     four.on("mousedown", function() {
+    four.on("mousedown", function() {
             console.log("VITAMINS");
             health++;
             if (health == 9) {
@@ -1107,7 +1119,7 @@ var hunger = 10;
         });
 
 //BALL: happiness++
-     five.on("mousedown", function() {
+    five.on("mousedown", function() {
             pages.go(p.page1, "up");
             console.log("BALL");
             happiness++;
