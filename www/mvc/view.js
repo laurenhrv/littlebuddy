@@ -9,7 +9,7 @@ var app = function(app) {
             .addTo(page1);
 
         var title = new zim.Label({text:"MY LITTLE BUDDY", size:"40", color:"#fff"})
-        .addTo(logo);
+            .addTo(logo);
         title.x = ((logo.width)/2)-((title.width)/2);
 
         var content = new zim.Container(700,600)
@@ -67,7 +67,7 @@ var app = function(app) {
         var logo2 = page2.logo = new zim.Rectangle(300,100,"#000")
             .addTo(page2);
 
-        var title2 = new zim.Label({text:"BACK", color:"#fff", size:"70", valign:"top"})
+        var title2 = new zim.Label({text:"BACK", color:"#fff", size:"50", valign:"top"})
             .addTo(logo2);
             title2.x = ((logo2.width)/2)-((title2.width)/2);
 
@@ -87,7 +87,6 @@ var app = function(app) {
             regions:[
         {object:logo2, marginTop:2, maxWidth:80, height:15, align:"center", valign:"top"},
         {object:content2, marginTop:2, maxWidth:100, height:70, backgroundColor:"#000"},
-        // {object:buttons2, marginTop:2, maxWidth:100, minHeight:10,}
             ],
             lastMargin:2,
             scalingObject:stage
